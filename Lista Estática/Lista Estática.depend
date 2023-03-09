@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1678160650 source:c:\users\win10\desktop\lista estática\main.cpp
+1678330283 source:c:\users\win10\desktop\lista estática\main.cpp
 	"listaestatica.h"
 	<iostream>
 
-1678161068 c:\users\win10\desktop\lista estática\listaestatica.h
+1678330764 c:\users\win10\desktop\lista estática\listaestatica.h
 	<iostream>
 
