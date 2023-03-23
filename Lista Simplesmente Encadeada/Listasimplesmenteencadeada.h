@@ -53,10 +53,66 @@ bool existeElemento(ListaSimplesmenteEncadeada<T> lista, T elemento)
 template<typename T>
 bool validaPosicao(ListaSimplesmenteEncadeada<T> lista, int posicao)
 {
+    return (posicao >= 1) && (posicao <= lista.cardinalidade);
+}
+
+template<typename T>
+T recuperaElemento(ListaSimplesmenteEncadeada<T> lista, int posicao)
+{
     Nodo<T> *p = lista;
+    int contador = 1;
+    if(posicao < 1 || posicao > lista.cardinalidadde)
+        throw "Posicao invalida"
     while(p != NULL)
     {
-        
+        if(contador == posicao)
+            return p->elemento;
+        p = p->proximo;
+        contador++;
+    }
+}
+
+template<typename T>
+int posicao(ListaSimplesmenteEncadeada<T> lista, T elemento)
+{
+    Nodo<T> *p = lista;
+    int contador = 1;
+    while(p != NULL)
+    {
+        if(p->elemento == elemento)
+            return contador;
+        p = p->proximo;
+        contador++;
+    }
+    throw "Elemento inexistente";
+}
+
+template<typename T>
+void insere(ListaSimplesmenteEncadeada<T> &lista, T elemento)
+{
+    Nodo<T> *panterior, *p = new Nodo;
+    p->elemento = elemento;
+    p->proximo = NULL;
+    if (lista.inicio == NULL)
+    {
+        *lista = p;
+        lista.cardinalidade++;
+        return;
+    }
+    panterior = ;
+    while (panterior->proximo != NULL)
+        panterior = panterior->prox;
+    panterior->proximo = p;
+    lista.cardinalidade++;
+}
+
+template<typename T>
+void exibelista(Nodo<T> *p){
+    while (p != NULL){
+        cout << "[" << p->elemento << "]";
+        p = p->proximo;
+    }
+}
 
 template<typename T>
 void destroi(ListaSimplesmenteEncadeada<T> &lista)
