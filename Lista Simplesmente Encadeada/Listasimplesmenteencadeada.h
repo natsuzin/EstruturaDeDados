@@ -26,6 +26,39 @@ void cria(ListaSimplesmenteEncadeada<T> &lista)
 }
 
 template<typename T>
+int ehVazia(ListaSimplesmenteEncadeada<T> lista)
+{
+    return lista.cardinalidade == 0;
+}
+
+template<typename T>
+int numeroDeElementos(ListaSimplesmenteEncadeada<T> lista)
+{
+    return lista.cardinalidade;
+}
+
+template<typename T>
+bool existeElemento(ListaSimplesmenteEncadeada<T> lista, T elemento)
+{
+    Nodo<T> *p = lista;
+    while(p != NULL)
+    {
+        if(p->elemento == elemento)
+            return true;
+        p = p->proximo;
+    }
+    return false;
+}
+
+template<typename T>
+bool validaPosicao(ListaSimplesmenteEncadeada<T> lista, int posicao)
+{
+    Nodo<T> *p = lista;
+    while(p != NULL)
+    {
+        
+
+template<typename T>
 void destroi(ListaSimplesmenteEncadeada<T> &lista)
 {
     Nodo<T> *p;
