@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1679614863 source:c:\users\7459939\desktop\lista duplamente encadeada\main.cpp
+	<iostream>
+	"ListaDuplamenteEncadeada.h"
+
+1679619082 c:\users\7459939\desktop\lista duplamente encadeada\listaduplamenteencadeada.h
+	<iostream>
+
