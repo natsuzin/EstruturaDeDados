@@ -13,7 +13,7 @@ struct Nodo {
 };
 
 template<typename T>
-struct ListaSimplesmenteEncadeada
+struct ListaDuplamenteEncadeada
 {
     int cardinalidade;
     Nodo<T>* inicio;
@@ -21,7 +21,7 @@ struct ListaSimplesmenteEncadeada
 };
 
 template<typename T>
-void cria(ListaSimplesmenteEncadeada<T> &lista)
+void cria(ListaDuplamenteEncadeada<T> &lista)
 {
     lista.cardinalidade = 0;
     lista.inicio = NULL;
@@ -29,19 +29,19 @@ void cria(ListaSimplesmenteEncadeada<T> &lista)
 }
 
 template<typename T>
-int ehVazia(ListaSimplesmenteEncadeada<T> lista)
+int ehVazia(ListaDuplamenteEncadeada<T> lista)
 {
     return lista.cardinalidade == 0;
 }
 
 template<typename T>
-int numeroDeElementos(ListaSimplesmenteEncadeada<T> lista)
+int numeroDeElementos(ListaDuplamenteEncadeada<T> lista)
 {
     return lista.cardinalidade;
 }
 
 template<typename T>
-bool existeElemento(ListaSimplesmenteEncadeada<T> lista, T elemento)
+bool existeElemento(ListaDuplamenteEncadeada<T> lista, T elemento)
 {
     Nodo<T> *p = lista.inicio;
     while(p != NULL)
@@ -54,13 +54,13 @@ bool existeElemento(ListaSimplesmenteEncadeada<T> lista, T elemento)
 }
 
 template<typename T>
-bool validaPosicao(ListaSimplesmenteEncadeada<T> lista, int posicao)
+bool validaPosicao(ListaDuplamenteEncadeada<T> lista, int posicao)
 {
     return (posicao >= 1) && (posicao <= lista.cardinalidade);
 }
 
 template<typename T>
-T recuperaElemento(ListaSimplesmenteEncadeada<T> lista, int posicao)
+T recuperaElemento(ListaDuplamenteEncadeada<T> lista, int posicao)
 {
     Nodo<T> *p = lista.inicio;
     int contador = 1;
@@ -76,7 +76,7 @@ T recuperaElemento(ListaSimplesmenteEncadeada<T> lista, int posicao)
 }
 
 template<typename T>
-int posicao(ListaSimplesmenteEncadeada<T> lista, T elemento)
+int posicao(ListaDuplamenteEncadeada<T> lista, T elemento)
 {
     Nodo<T> *p = lista.inicio;
     int contador = 1;
@@ -92,7 +92,7 @@ int posicao(ListaSimplesmenteEncadeada<T> lista, T elemento)
 }
 
 template<typename T>
-void insere(ListaSimplesmenteEncadeada<T> &lista, T elemento, int posicao)
+void insere(ListaDuplamenteEncadeada<T> &lista, T elemento, int posicao)
 {
     if(posicao < 1 || posicao > lista.cardinalidade + 1)
         throw "POSICAO INVALIDA";
@@ -131,7 +131,7 @@ void insere(ListaSimplesmenteEncadeada<T> &lista, T elemento, int posicao)
 }
 
 template<typename T>
-void retira (ListaSimplesmenteEncadeada<T> &lista, int posicao)
+void retira (ListaDuplamenteEncadeada<T> &lista, int posicao)
 {
     if(lista.cardinalidade == 0)
         throw "UNDERFLOW";
@@ -160,7 +160,7 @@ void retira (ListaSimplesmenteEncadeada<T> &lista, int posicao)
 
 
 template<typename T>
-void mostra(ListaSimplesmenteEncadeada<T> lista){
+void mostra(ListaDuplamenteEncadeada<T> lista){
     Nodo<T> *p = lista.inicio;
     while (p != NULL){
         cout << "[" << p->elemento << "]";
@@ -169,7 +169,7 @@ void mostra(ListaSimplesmenteEncadeada<T> lista){
 }
 
 template<typename T>
-void destroi(ListaSimplesmenteEncadeada<T> &lista)
+void destroi(ListaDuplamenteEncadeada<T> &lista)
 {
     Nodo<T> *p;
     while (lista.inicio != NULL)
