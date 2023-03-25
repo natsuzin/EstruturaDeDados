@@ -157,7 +157,7 @@ void retira (ListaDuplamenteEncadeada<T> &lista, int posicao)
         lista.inicio = lista.inicio->proximo;
     else
     {
-        Nodo<T>* p = lista.inicio;
+        Nodo<T> *p = lista.inicio;
         int contador = 1;
         while (contador != posicao - 1)
         {
@@ -165,11 +165,19 @@ void retira (ListaDuplamenteEncadeada<T> &lista, int posicao)
             contador++;
         }
         q = p->proximo;
-        p->proximo = q->proximo;
+        if(q->proximo == NULL){
+            lista.fim = q->anterior;
+            p->proximo = NULL;
+        }
+        else{
+            p->proximo = q->proximo;
+            p = q->proximo;
+            p->anterior = q->anterior;
+        }
     }
     delete q;
     lista.cardinalidade--;
-    }
+}
 
 
 template<typename T>
