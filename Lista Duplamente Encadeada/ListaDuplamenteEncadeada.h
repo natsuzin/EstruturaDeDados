@@ -43,12 +43,13 @@ int numeroDeElementos(ListaDuplamenteEncadeada<T> lista)
 template<typename T>
 bool existeElemento(ListaDuplamenteEncadeada<T> lista, T elemento)
 {
-    Nodo<T> *p = lista.inicio;
+    Nodo<T> *p = lista.inicio, *q = lista.fim;
     while(p != NULL)
     {
-        if(p->elemento == elemento)
+        if(p->elemento == elemento || q->elemento == elemento)
             return true;
         p = p->proximo;
+        q = q->anterior;
     }
     return false;
 }
@@ -68,28 +69,34 @@ T recuperaElemento(ListaDuplamenteEncadeada<T> lista, int posicao)
         throw "Posicao invalida";
     while(p != NULL || q != NULL)
     {
-        if(contador == posicao || contadorFim == posicao) // caso um dos contadores encontre a posicao, retorna seu elemento
+        if(contador == posicao) // caso contador do início encontre a posicao, retorna seu elemento
             return p->elemento;
+        if(contadorFim == posicao) // caso contador do fim encontre a posicao, retorna seu elemento
+            return q->elemento;
         p = p->proximo; // p se move do início ao fim
         q = q->anterior; // q se move do fim ao início
-        contador++; //  incrementar 1 a cada nodo passado até encontrar a posicao solicitada
+        contador++; //  incrementa 1 a cada nodo passado até encontrar a determinada posição
         contadorFim--; // enquanto este decrementa
     }
 }
 
 template<typename T>
-int posicao(ListaDuplamenteEncadeada<T> lista, T elemento)
+int recuperaPosicao(ListaDuplamenteEncadeada<T> lista, T elemento) // funciona da mesma forma que o recuperaElemento(), porém este retorna a posicao de determinado elemento
 {
-    Nodo<T> *p = lista.inicio;
-    int contador = 1;
+    Nodo<T> *p = lista.inicio, *q = lista.fim;
+    int contador = 1, contadorFim ;
     if(!existeElemento(lista,elemento))
         throw "Elemento inexistente";
-    while(p != NULL)
+    while(p != NULL || q != NULL)
     {
         if(p->elemento == elemento)
             return contador;
+        if(q->elemento == elemento)
+            return contadorFim;
         p = p->proximo;
+        q = q->anterior;
         contador++;
+        contadorFim--;
     }
 }
 
