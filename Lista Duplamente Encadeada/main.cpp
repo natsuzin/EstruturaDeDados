@@ -18,20 +18,16 @@ int main()
     mostra(lista1);
     insere(lista1, 50, 5);
     mostra(lista1);
-    /*
     retira(lista1, 1);
     mostra(lista1);
-    retira(lista1, 1);
+    retira(lista1, 3);
     mostra(lista1);
-    */
 
     cout << "e vazia = " << ehVazia(lista1) << endl;
 
     cout << "40 esta na lista? ";
 
     existeElemento(lista1, 40)? cout << "sim": cout << "nao" << endl;
-
-    cout << endl;
 
     try
     {
@@ -46,7 +42,7 @@ int main()
 
     try
     {
-        cout << recuperaPosicao(lista1,20);
+        cout << recuperaPosicao(lista1,30);
     }
     catch (const char* msg)
     {
