@@ -102,19 +102,19 @@ void insere(ListaDuplamenteEncadeada<T> &lista, T elemento, int posicao)
     q->elemento = elemento;
     q->proximo = NULL;
     q->anterior = NULL;
-    if (lista.inicio == NULL){
+    if (lista.inicio == NULL){ // inserir caso lista não tenha elementos (seja nula)
         lista.inicio = q;
         lista.fim = q;
     }
     else
     {
         Nodo<T>* p = lista.inicio;
-        if (posicao == 1){
+        if (posicao == 1){ // inserir na primeira posicao
             q->proximo = lista.inicio;
             p->anterior = q;
             lista.inicio = q;
         }
-        else{
+        else{ // inserir no meio ou final da lista
             int contador = 1;
             while (contador != posicao - 1){
                 p = p->proximo;
@@ -123,8 +123,12 @@ void insere(ListaDuplamenteEncadeada<T> &lista, T elemento, int posicao)
             q->proximo = p->proximo;
             p->proximo = q;
             q->anterior = p;
-            p->proximo = q->proximo;
-            p->anterior = q;
+            if (q->proximo == NULL) // caso o proximo seja nulo, o "fim" receberá seu endereço (inserção como último nodo da lista)
+                lista.fim = q;
+            else{ // caso exista um próximo nodo (inserção no meio)
+                p = q->proximo;
+                p->anterior = q;
+            }
         }
     }
     lista.cardinalidade++;
@@ -160,13 +164,13 @@ void retira (ListaDuplamenteEncadeada<T> &lista, int posicao)
 
 
 template<typename T>
-void mostra(ListaDuplamenteEncadeada<T> lista){
-    Nodo<T> *p = lista.inicio;
-    while (p != NULL){
+void mostra(ListaDuplamenteEncadeada<T> lista)
+{
+    for (Nodo<T>* p = lista.inicio; p != NULL; p = p->proximo)
         cout << "[" << p->elemento << "]";
-        p = p->proximo;
-    }
+    cout << endl;
 }
+
 
 template<typename T>
 void destroi(ListaDuplamenteEncadeada<T> &lista)
