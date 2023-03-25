@@ -10,27 +10,50 @@ int main()
 
     insere(lista1, 10, 1);
     mostra(lista1);
-    cout << endl;
     insere(lista1, 20, 2);
     mostra(lista1);
-    cout << endl;
     insere(lista1, 30, 3);
     mostra(lista1);
-    cout << endl;
-
+    insere(lista1, 40, 4);
+    mostra(lista1);
+    insere(lista1, 50, 5);
+    mostra(lista1);
+    /*
     retira(lista1, 1);
     mostra(lista1);
-    cout << endl;
     retira(lista1, 1);
     mostra(lista1);
+    */
+
+    cout << "e vazia = " << ehVazia(lista1) << endl;
+
+    cout << "40 esta na lista? ";
+
+    existeElemento(lista1, 40)? cout << "sim": cout << "nao" << endl;
+
     cout << endl;
 
-    cout << "eh vazia = " << ehVazia(lista1) << endl;
+    try
+    {
+        cout << recuperaElemento(lista1, 1);
+    }
+    catch (const char* msg)
+    {
+        cerr << msg << endl;
+    }
 
-    cout << "25 estah na lista? ";
+    cout << endl;
 
-    existeElemento(lista1, 25)? cout<< "sim": cout << "nao" << endl;
+    try
+    {
+        cout << recuperaPosicao(lista1,20);
+    }
+    catch (const char* msg)
+    {
+        cerr << msg << endl;
+    }
 
+    cout << endl;
     ListaDuplamenteEncadeada<char> lista2;
 
     cria(lista2);
@@ -40,8 +63,6 @@ int main()
     mostra(lista2);
 
     destroi(lista1);
-
-    cout << endl;
 
     try
     {
