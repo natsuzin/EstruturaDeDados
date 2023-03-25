@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    ListaSimplesmenteEncadeada<int> lista1;
+    ListaDuplamenteEncadeada<int> lista1;
     cria(lista1);
 
     insere(lista1, 10, 1);
@@ -31,7 +31,7 @@ int main()
 
     existeElemento(lista1, 25)? cout<< "sim": cout << "nao" << endl;
 
-    ListaSimplesmenteEncadeada<char> lista2;
+    ListaDuplamenteEncadeada<char> lista2;
 
     cria(lista2);
 
