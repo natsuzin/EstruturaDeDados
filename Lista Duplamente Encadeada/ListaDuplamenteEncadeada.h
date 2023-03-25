@@ -62,16 +62,18 @@ bool validaPosicao(ListaDuplamenteEncadeada<T> lista, int posicao)
 template<typename T>
 T recuperaElemento(ListaDuplamenteEncadeada<T> lista, int posicao)
 {
-    Nodo<T> *p = lista.inicio;
-    int contador = 1;
-    if(posicao < 1 || posicao > lista.cardinalidadde)
+    Nodo<T> *p = lista.inicio, *q = lista.fim; // ponteiro q recebe fim da lista (ultimo nodo)
+    int contador = 1, contadorFim = lista.cardinalidade; // criado um contador fim que é inicializado com a quantidade de elementos (cardinalidade)
+    if(posicao < 1 || posicao > lista.cardinalidade)
         throw "Posicao invalida";
-    while(p != NULL)
+    while(p != NULL || q != NULL)
     {
-        if(contador == posicao)
+        if(contador == posicao || contadorFim == posicao) // caso um dos contadores encontre a posicao, retorna seu elemento
             return p->elemento;
-        p = p->proximo;
-        contador++;
+        p = p->proximo; // p se move do início ao fim
+        q = q->anterior; // q se move do fim ao início
+        contador++; //  incrementar 1 a cada nodo passado até encontrar a posicao solicitada
+        contadorFim--; // enquanto este decrementa
     }
 }
 
