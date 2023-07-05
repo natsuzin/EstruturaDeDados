@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1685643859 source:c:\users\igord\onedrive\documentos\c++\arvore_estrutura\main.cpp
+	<iostream>
+	"ArvoreGenerica.h"
+
+1685647563 c:\users\igord\onedrive\documentos\c++\arvore_estrutura\arvoregenerica.h
+
